@@ -1,0 +1,76 @@
+/* src/pages/ProfilePage.module.css */
+.profilePage {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.profileSection,
+.addressSection,
+.orderHistorySection {
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.profileHeader {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+    background-color: #1976d2;
+}
+
+.userInfo h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.userInfo p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.editButton {
+    margin-top: 10px;
+}
+
+.contactInfo p {
+    margin: 0;
+    color: #444;
+}
+
+.addressSection h3,
+.orderHistorySection h3 {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 15px;
+    color: #1976d2;
+}
+
+.editAddressButton {
+    margin-top: 10px;
+}
+
+.orderItem {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.orderItem p {
+    margin: 5px 0;
+}
