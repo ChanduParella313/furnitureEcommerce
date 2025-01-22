@@ -1,7 +1,7 @@
-package src.main.java.furnitureEcommerce.model;
+package furnitureEcommerce.model;
 
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 public class Product {

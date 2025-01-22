@@ -1,4 +1,4 @@
-package src.main.java.furnitureEcommerce.controller;
+package furnitureEcommerce.controller;
 
 
 import src.main.java.furnitureEcommerce.model.Product;
