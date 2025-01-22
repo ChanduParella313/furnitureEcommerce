@@ -1,0 +1,88 @@
+/* General Navbar Styles */
+.navbar {
+    width: 100%;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Row 1 Styles */
+  .row1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+  
+  .logo {
+    width: 100px; /* Adjust based on your design */
+    height: auto; /* Ensures the aspect ratio is preserved */
+    display: inline-block; /* Ensures the logo behaves like an inline element */
+    vertical-align: middle; /* Aligns with text or other elements */
+    cursor: pointer; /* Makes it clickable if it's a link */
+  }
+  
+  
+  .search-container {
+    width: auto;
+    display: flex;
+    flex: 1;
+    margin: 0 20px;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+  }
+  
+  .search-button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+  }
+  
+  .search-button i {
+    font-size: 16px;
+  }
+  
+  .right-icons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .icon {
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  /* Row 2 Styles */
+  .row2 {
+    background-color: #007bff;
+    padding: 10px 20px;
+  }
+  
+  .category-menu {
+    display: flex;
+    gap: 15px;
+    justify-content: space-evenly;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .category-menu li {
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .category-menu li:hover {
+    text-decoration: underline;
+  }
+  
