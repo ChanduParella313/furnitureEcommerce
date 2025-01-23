@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import pmg from '../images/bbb.png';
 import { FaSearch } from "react-icons/fa";
 import { BsGift } from "react-icons/bs";
@@ -8,6 +8,31 @@ import { VscAccount } from "react-icons/vsc";
 import './Navbar.css'; // Import a custom CSS file for styling
 
 const Navbar = () => {
+
+  const [hoveredCategory, setHoveredCategory] = useState(null);
+
+  const categories = {
+    Furniture: [
+      "Living Room Furniture",
+      "Bedroom Furniture",
+      "Patio Furniture",
+      "Office & Gaming Furniture",
+      "Dining, Kitchen & Bar",
+      "More",
+    ],
+    Rugs: ["Area Rugs", "Outdoor Rugs", "Runner Rugs", "Rug Pads"],
+    Bedding: ["Sheets", "Comforters", "Pillows", "Duvet Covers"],
+    Bath: ["Towels", "Bath Rugs", "Shower Curtains", "Bathroom Accessories"],
+    Kitchen: ["Cookware", "Dinnerware", "Appliances", "Storage"],
+    Decor: ["Wall Art", "Mirrors", "Clocks", "Vases"],
+    Outdoor: ["Outdoor Furniture", "Garden Decor", "Grills"],
+    "Home Implementation": ["Storage Solutions", "Cleaning Supplies"],
+    Lighting: ["Ceiling Lights", "Table Lamps", "Floor Lamps"],
+    "Baby & Kids": ["Nursery Furniture", "Kids Beds", "Toys"],
+    "More Ideas": ["Seasonal Decor", "Gift Ideas"],
+    "Sales & Deals": ["Daily Deals", "Clearance"],
+  };
+
   return (
     <nav className="navbar">
       {/* Row 1 */}
@@ -51,22 +76,27 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Row 2 */}
-      <div className="navbar-row row2">
-        <ul className="category-menu">
-          <li>Furniture</li>
-          <li>Rugs</li>
-          <li>Bedding</li>
-          <li>Bath</li>
-          <li>Kitchen</li>
-          <li>Decor</li>
-          <li>Outdoor</li>
-          <li>Home Implementation</li>
-          <li>Lighting</li>
-          <li>Baby & Kids</li>
-          <li>More Ideas</li>
-          <li>Sales & Deals</li>
-        </ul>
+       {/* Second Row */}
+       <div className="navbar-row-2">
+        {Object.keys(categories).map((category) => (
+          <div
+            key={category}
+            className="category"
+            onMouseEnter={() => setHoveredCategory(category)}
+            onMouseLeave={() => setHoveredCategory(null)}
+          >
+            {category}
+            {hoveredCategory === category && (
+              <div className="dropdown">
+                {categories[category].map((subcategory) => (
+                  <div key={subcategory} className="subcategory">
+                    {subcategory}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     </nav>
   );
