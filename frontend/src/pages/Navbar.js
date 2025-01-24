@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import { Link } from 'react-router-dom';
 import pmg from '../images/bbb.png';
 import { FaSearch } from "react-icons/fa";
 import { BsGift } from "react-icons/bs";
@@ -7,11 +8,12 @@ import { BsCart4 } from "react-icons/bs";
 import { VscAccount } from "react-icons/vsc";
 import './Navbar.css'; // Import a custom CSS file for styling
 
+
 const Navbar = () => {
 
-  const [hoveredCategory, setHoveredCategory] = useState(null);
+  const [hoveredMenu, setHoveredMenu] = useState(null);
 
-  const categories = {
+  const menu = {
     Furniture: [
       "Living Room Furniture",
       "Bedroom Furniture",
@@ -38,6 +40,7 @@ const Navbar = () => {
       {/* Row 1 */}
       <div className="navbar-row row1">
         <div className="logo">
+          <Link to="/">
         <img 
   src={pmg} 
   alt="Logo" 
@@ -48,7 +51,7 @@ const Navbar = () => {
     verticalAlign: 'middle',
     cursor: 'pointer'
   }} 
-/>
+/></Link>
         </div>
         <div className="search-container">
           <input
@@ -62,7 +65,7 @@ const Navbar = () => {
         </div>
         <div className="right-icons">
           <div className="icon">
-          <VscAccount/> {/* Account symbol */}
+          <Link to="/profile"><VscAccount/></Link> {/* Account symbol */}
           </div>
           <div className="icon">
             <CiHeart /> {/* Wishlist */}
@@ -71,24 +74,24 @@ const Navbar = () => {
           <BsGift /> {/* Gift box */}
           </div>
           <div className="icon">
-          <BsCart4 /> {/* Cart */}
+          <Link to="/cart"><BsCart4 /> </Link>{/* Cart */}
           </div>
         </div>
       </div>
 
        {/* Second Row */}
        <div className="navbar-row-2">
-        {Object.keys(categories).map((category) => (
+        {Object.keys(menu).map((category) => (
           <div
             key={category}
             className="category"
-            onMouseEnter={() => setHoveredCategory(category)}
-            onMouseLeave={() => setHoveredCategory(null)}
+            onMouseEnter={() => setHoveredMenu(category)}
+            onMouseLeave={() => setHoveredMenu(null)}
           >
             {category}
-            {hoveredCategory === category && (
+            {hoveredMenu === category && (
               <div className="dropdown">
-                {categories[category].map((subcategory) => (
+                {menu[category].map((subcategory) => (
                   <div key={subcategory} className="subcategory">
                     {subcategory}
                   </div>
