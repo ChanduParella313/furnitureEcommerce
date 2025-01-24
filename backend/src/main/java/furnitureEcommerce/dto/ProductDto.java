@@ -1,32 +1,13 @@
-package furnitureEcommerce.model;
+package furnitureEcommerce.dto;
 
-import jakarta.persistence.*;
-import java.util.List;
-
-@Entity
-@Table(name = "Product")
-public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ProductDto {
     private Long productId;
-
-    @Column(nullable = false)
     private String productName;
-
-    @Column(columnDefinition = "TEXT")
     private String description;
-
-    @Column(nullable = false)
     private Double price;
-
-    @Column(nullable = false)
     private Integer stock;
-
     private String image;
-
-    @Column(nullable = false)
     private String color;
-
     private String material;
     private String style;
     private String finish;
@@ -34,25 +15,8 @@ public class Product {
     private String features;
     private String pattern;
     private String size;
-
-    @Enumerated(EnumType.STRING)
-    private Availability availability;
-
-    @ManyToOne
-    @JoinColumn(name = "subcategory_id", nullable = false)
-    private Subcategory subcategory;
-
-    public enum Availability {
-        IN_STOCK, OUT_OF_STOCK, PREORDER
-    }
-
-    public Subcategory getSubcategory() {
-        return subcategory;
-    }
-
-    public void setSubcategory(Subcategory subcategory) {
-        this.subcategory = subcategory;
-    }
+    private String availability;
+    private Long subcategoryId;
 
     public Long getProductId() {
         return productId;
@@ -166,18 +130,23 @@ public class Product {
         this.size = size;
     }
 
-    public Availability getAvailability() {
+    public String getAvailability() {
         return availability;
     }
 
-    public void setAvailability(Availability availability) {
+    public void setAvailability(String availability) {
         this.availability = availability;
     }
 
-// Getters and setters
+    public Long getSubcategoryId() {
+        return subcategoryId;
+    }
 
+    public void setSubcategoryId(Long subcategoryId) {
+        this.subcategoryId = subcategoryId;
+    }
 
-    public Product(Long productId, String productName, String description, Double price, Integer stock, String image, String color, String material, String style, String finish, String brand, String features, String pattern, String size, Availability availability, Subcategory subcategory) {
+    public ProductDto(Long productId, String productName, String description, Double price, Integer stock, String image, String color, String material, String style, String finish, String brand, String features, String pattern, String size, String availability, Long subcategoryId) {
         this.productId = productId;
         this.productName = productName;
         this.description = description;
@@ -193,12 +162,12 @@ public class Product {
         this.pattern = pattern;
         this.size = size;
         this.availability = availability;
-        this.subcategory = subcategory;
+        this.subcategoryId = subcategoryId;
     }
 
     @Override
     public String toString() {
-        return "Product{" +
+        return "ProductDto{" +
                 "productId=" + productId +
                 ", productName='" + productName + '\'' +
                 ", description='" + description + '\'' +
@@ -213,8 +182,8 @@ public class Product {
                 ", features='" + features + '\'' +
                 ", pattern='" + pattern + '\'' +
                 ", size='" + size + '\'' +
-                ", availability=" + availability +
-                ", subcategory=" + subcategory +
+                ", availability='" + availability + '\'' +
+                ", subcategoryId=" + subcategoryId +
                 '}';
     }
 }

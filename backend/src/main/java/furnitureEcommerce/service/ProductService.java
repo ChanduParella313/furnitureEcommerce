@@ -1,24 +1,17 @@
-package src.main.java.furnitureEcommerce.service;
+package furnitureEcommerce.service;
 
 
-import src.main.java.furnitureEcommerce.model.Product;
-import src.main.java.furnitureEcommerce.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import furnitureEcommerce.model.Product;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class ProductService {
-
-    @Autowired
-    private ProductRepository productRepository;
-
-    public List<Product> getAllProducts() {
-        return productRepository.findAll();
-    }
-
-    public Product getProductById(Long id) {
-        return productRepository.findById(id).orElse(null);
-    }
+public interface ProductService {
+    Optional<Product> getProductById(Long id);
+    List<Product> getAllProducts();
+    void addProduct(Product product);
+    void updateProduct(Product product);
+    void deleteProduct(Long id);
 }
